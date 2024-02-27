@@ -3,6 +3,7 @@ import styles from "./BodyComponent.module.css";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import SearchComponent from "./SearchComponent";
+import CorouselComponent from "./CorouselComponent";
 
 const filterData = (searchText, restaurantData) => {
   const data = restaurantData.filter((rest) => {
@@ -13,6 +14,7 @@ const filterData = (searchText, restaurantData) => {
 
 const BodyComponent = () => {
   const [restaurantData, setRestaurantData] = useState([]);
+  const [corouselRestaurentData, setCorouselRestaurentData] = useState([]);
   const [filteredRestaurantData, setFilteredRestaurantData] = useState([]);
   useEffect(
     () => {
@@ -35,18 +37,22 @@ const BodyComponent = () => {
     setFilteredRestaurantData(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setCorouselRestaurentData(
+      json?.data?.cards[0]?.card?.card?.imageGridCards?.info
+    );
   }
 
-  return restaurantData.length === 0 ? (
+  return restaurantData?.length === 0 ? (
     <Shimmer />
   ) : (
     <>
+      <CorouselComponent corouselRestaurentData={corouselRestaurentData} />
       <SearchComponent
         filterData={filterData}
         restaurantData={restaurantData}
         setFilteredRestaurantData={setFilteredRestaurantData}
       />
-      {filteredRestaurantData.length === 0 ? (
+      {filteredRestaurantData?.length === 0 ? (
         <h1>No Restaurent matched your filter ....</h1>
       ) : (
         <div className={styles["restaurent-list"]}>

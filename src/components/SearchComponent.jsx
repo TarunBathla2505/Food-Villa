@@ -7,7 +7,6 @@ const SearchComponent = ({
   setFilteredRestaurantData,
 }) => {
   const [searchText, setSearchText] = useState("");
-  console.log(styles);
   return (
     <div className={styles["search-container"]}>
       <input

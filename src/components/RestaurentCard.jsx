@@ -5,9 +5,9 @@ const RestaurantCard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
   return (
     <div className={styles.card}>
       <img src={ImgCdnURL + cloudinaryImageId} />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{avgRating} stars</h4>
+      <p className={styles.name}>{name}</p>
+      <p className={styles.cuisine}>{cuisines.join(", ")}</p>
+      <p className={styles.rating}>⭐️ {avgRating}</p>
     </div>
   );
 };

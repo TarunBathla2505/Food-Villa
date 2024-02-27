@@ -1,0 +1,14 @@
+.items{
+  display: flex;
+  justify-content: center;
+}
+.corousel{
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  /* padding-right: 20px;
+  padding-left: 20px; */
+  min-height: 300px;
+  max-height: 300px;
+}
