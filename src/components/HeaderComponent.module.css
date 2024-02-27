@@ -3,7 +3,9 @@
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.904);
 }
-
+.navItems{
+  display: flex;
+}
 .navItems > ul {
   list-style-type: none;
   display: flex;
@@ -12,4 +14,11 @@
 
 .navItems > ul > li {
   padding: 10px;
+}
+
+.navItems > button{
+  background-color: rgba(0, 0, 0, 0.904);
+  color: white;
+  width: 60px;
+  border: none;
 }
