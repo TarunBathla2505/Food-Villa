@@ -1,4 +1,6 @@
 .card > img{
-  width: 100px;
-  
+  width: 100px;  
+}
+.card:hover{
+  border: 1px solid black;
 }

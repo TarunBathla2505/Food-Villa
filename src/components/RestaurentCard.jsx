@@ -11,4 +11,5 @@ const RestaurantCard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
     </div>
   );
 };
+
 export default RestaurantCard;
