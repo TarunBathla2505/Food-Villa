@@ -1,9 +1,9 @@
-import RestaurantCard from "./RestaurentCard";
+import RestaurantCard from "./Restaurents/RestaurentCard";
 import styles from "./BodyComponent.module.css";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
-import SearchComponent from "./SearchComponent";
-import CorouselComponent from "./CorouselComponent";
+import Shimmer from "../shimmer/Shimmer";
+import SearchComponent from "./search/SearchComponent";
+import CorouselComponent from "./Corousal/CorouselComponent";
 
 const filterData = (searchText, restaurantData) => {
   const data = restaurantData.filter((rest) => {

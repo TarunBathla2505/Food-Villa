@@ -1,4 +1,4 @@
-import TitleComponent from "./TitleComponent";
+import TitleComponent from "./title/TitleComponent";
 import styles from "./HeaderComponent.module.css";
 import { useState } from "react";
 

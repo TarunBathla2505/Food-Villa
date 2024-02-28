@@ -1,5 +1,5 @@
 import styles from "./RestaurantCard.module.css";
-import { ImgCdnURL } from "../constant";
+import { ImgCdnURL } from "../../../constant";
 
 const RestaurantCard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
   return (
