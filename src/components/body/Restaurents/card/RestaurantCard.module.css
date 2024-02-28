@@ -18,6 +18,10 @@
   border-radius: 20px;
   max-height: 250px;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
 .name{
   font-size: 18px;
   font-weight: 700;

@@ -1,4 +1,4 @@
-import RestaurantCard from "./Restaurents/RestaurentCard";
+import RestaurantCard from "./Restaurents/card/RestaurentCard";
 import styles from "./BodyComponent.module.css";
 import { useState, useEffect } from "react";
 import Shimmer from "../shimmer/Shimmer";
@@ -32,10 +32,10 @@ const BodyComponent = () => {
     );
     const json = await data.json();
     setRestaurantData(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurantData(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setCorouselRestaurentData(
       json?.data?.cards[0]?.card?.card?.imageGridCards?.info
@@ -43,7 +43,15 @@ const BodyComponent = () => {
   }
 
   return restaurantData?.length === 0 ? (
-    <Shimmer />
+    <>
+      <CorouselComponent corouselRestaurentData={corouselRestaurentData} />
+      <SearchComponent
+        filterData={filterData}
+        restaurantData={restaurantData}
+        setFilteredRestaurantData={setFilteredRestaurantData}
+      />
+      <Shimmer />
+    </>
   ) : (
     <>
       <CorouselComponent corouselRestaurentData={corouselRestaurentData} />

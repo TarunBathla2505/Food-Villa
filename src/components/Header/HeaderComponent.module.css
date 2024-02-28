@@ -17,6 +17,17 @@
   padding: 10px;
 }
 
+.navItems > ul > li:hover {
+  font-weight:700;
+}
+
+
+.navItems > ul > li > a{
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+}
+
 .navItems > button{
   background-color: rgba(0, 0, 0, 0.904);
   color: white;
