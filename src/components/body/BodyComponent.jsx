@@ -4,44 +4,24 @@ import { useState, useEffect } from "react";
 import Shimmer from "../shimmer/Shimmer";
 import SearchComponent from "./search/SearchComponent";
 import CorouselComponent from "./Corousal/CorouselComponent";
-
-const filterData = (searchText, restaurantData) => {
-  const data = restaurantData.filter((rest) => {
-    return rest?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase());
-  });
-  return data;
-};
+import { filterData } from "../../utils/helper";
+import useRestaurentList from "../../utils/useRestaurentList";
+import useCorouselList from "../../utils/useCorouselList";
+import useOnline from "../../utils/useOnline";
 
 const BodyComponent = () => {
-  const [restaurantData, setRestaurantData] = useState([]);
-  const [corouselRestaurentData, setCorouselRestaurentData] = useState([]);
   const [filteredRestaurantData, setFilteredRestaurantData] = useState([]);
-  useEffect(
-    () => {
-      //call back function :-  this function will be called not immediately but will be called whenever useEffect wants. i.e when our page is render all the code will be executed and after that this function is called. component render either my state changes or my propes changes
-      getRestaurants();
-    },
-    [
-      //this is a dependency array if we dont want our useEffect to run evry rerender we pass a depencency array and we want it to be called only some state change we pass that state in array.
-      //searchText, //now this useEffect is dependent on searchText.
-    ]
-  );
-  async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.73390&lng=76.78890&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    setRestaurantData(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurantData(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setCorouselRestaurentData(
-      json?.data?.cards[0]?.card?.card?.imageGridCards?.info
-    );
-  }
+  const restaurantData = useRestaurentList();
+  const corouselRestaurentData = useCorouselList();
 
+  useEffect(() => {
+    setFilteredRestaurantData(restaurantData);
+  }, [restaurantData]);
+
+  const online = useOnline();
+  if (!online) {
+    return <h1>Offline please check your internet connection</h1>;
+  }
   return restaurantData?.length === 0 ? (
     <>
       <CorouselComponent corouselRestaurentData={corouselRestaurentData} />

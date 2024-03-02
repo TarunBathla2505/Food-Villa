@@ -1,27 +1,30 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ImgCdnURL } from "../../../../constant";
+import useRestaurent from "../../../../utils/useRestaurent";
 
 function RestaurentDetails() {
   //used to read dynamic url params
   const { id } = useParams();
 
-  const [info, setInfo] = useState([]);
+  // const [info, setInfo] = useState([]);
+  const info = useRestaurent(id);
 
-  useEffect(() => {
-    restaurentInfo();
-  }, []);
+  // useEffect(() => {
+  //   restaurentInfo();
+  // }, []);
 
-  async function restaurentInfo() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.73390&lng=76.78890&restaurantId=" +
-        id +
-        "&catalog_qa=undefined&submitAction=ENTER"
-    );
-    const json = await data.json();
-    setInfo(json?.data?.cards[2]?.card?.card?.info);
-  }
-  console.log(info);
+  //https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.73390&lng=76.78890&restaurantId=319054&catalog_qa=undefined&submitAction=ENTER
+
+  // async function restaurentInfo() {
+  //   const data = await fetch(
+  //     "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.73390&lng=76.78890&restaurantId=" +
+  //       id +
+  //       "&catalog_qa=undefined&submitAction=ENTER"
+  //   );
+  //   const json = await data.json();
+  //   setInfo(json?.data?.cards[0]?.card?.card?.info);
+  // }
   const imageUrl = ImgCdnURL;
   return (
     <div>
