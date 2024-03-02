@@ -22,6 +22,9 @@ const HeaderComponent = () => {
           <li>
             <Link to="">Cart</Link>
           </li>
+          <li>
+            <Link to="/instamart">Instamart</Link>
+          </li>
         </ul>
         {loggedIn ? (
           <button onClick={() => setLoggedIn(false)}>Logout</button>
