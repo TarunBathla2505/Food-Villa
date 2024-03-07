@@ -1,12 +1,10 @@
-import styles from "./Shimmer.module.css";
-
 const Shimmer = () => {
   return (
-    <div className={styles["restaurent-list"]}>
+    <div className="">
       {Array(20)
         .fill("")
         .map((item, index) => (
-          <div className={styles["shimmer-card"]} key={index}></div>
+          <div className="" key={index}></div>
         ))}
     </div>
   );

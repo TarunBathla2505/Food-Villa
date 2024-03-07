@@ -1,37 +1,48 @@
 import TitleComponent from "./title/TitleComponent";
-import styles from "./HeaderComponent.module.css";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   return (
-    <div className={styles.header}>
+    <div className="flex justify-between bg-black text-white">
       <TitleComponent />
-      <div className={styles.navItems}>
-        <ul>
-          <li>
+      <div className="flex items-center">
+        <ul className="flex">
+          <li className="pr-5 hover:font-bold">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="pr-5 hover:font-bold">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="pr-5 hover:font-bold">
             <Link to="/contact">Contact us</Link>
           </li>
-          <li>
+          <li className="pr-5 hover:font-bold">
             <Link to="">Cart</Link>
           </li>
-          <li>
+          <li className="pr-5 hover:font-bold">
             <Link to="/instamart">Instamart</Link>
           </li>
         </ul>
-        {loggedIn ? (
-          <button onClick={() => setLoggedIn(false)}>Logout</button>
-        ) : (
-          <button onClick={() => setLoggedIn(true)}>Login</button>
-        )}
+        
       </div>
+      {loggedIn ? (
+          <button
+            className="pr-3 w-35 hover:font-bold"
+            onClick={() => setLoggedIn(false)}
+          >
+            Logout
+          </button>
+        ) : (
+          <button
+            className="pr-3 w-35 hover:font-bold"
+            onClick={() => setLoggedIn(true)}
+          >
+            Login
+          </button>
+        )}
     </div>
   );
 };

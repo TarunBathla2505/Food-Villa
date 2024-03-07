@@ -1,5 +1,4 @@
 import RestaurantCard from "./Restaurents/card/RestaurentCard";
-import styles from "./BodyComponent.module.css";
 import { useState, useEffect } from "react";
 import Shimmer from "../shimmer/Shimmer";
 import SearchComponent from "./search/SearchComponent";
@@ -43,7 +42,7 @@ const BodyComponent = () => {
       {filteredRestaurantData?.length === 0 ? (
         <h1>No Restaurent matched your filter ....</h1>
       ) : (
-        <div className={styles["restaurent-list"]}>
+        <div className="flex flex-wrap gap-3 pl-3 drop-shadow-2xl">
           {filteredRestaurantData.map((restaurent) => {
             return (
               <RestaurantCard {...restaurent.info} key={restaurent.info.id} />

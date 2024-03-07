@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "./SearchComponent.module.css";
 
 const SearchComponent = ({
   filterData,
@@ -8,17 +7,17 @@ const SearchComponent = ({
 }) => {
   const [searchText, setSearchText] = useState("");
   return (
-    <div className={styles["search-container"]}>
+    <div className="flex px-3 py-3 justify-center min-h-16">
       <input
         type="text"
-        className={styles["search-input"]}
+        className=" border-2 border-black w-1/2 rounded-md mr-3"
         placeholder="Search"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
       <button
         type="button"
-        className={styles["search-btn"]}
+        className=" bg-black text-white rounded-md w-20"
         onClick={() => {
           const data = filterData(searchText, restaurantData);
           setFilteredRestaurantData(data);

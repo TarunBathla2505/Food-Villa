@@ -1,6 +1,5 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import styles from "./CorouselComponent.module.css";
 import CorouselCard from "./CorouselCard";
 
 const CorouselComponent = ({ corouselRestaurentData }) => {
@@ -16,11 +15,11 @@ const CorouselComponent = ({ corouselRestaurentData }) => {
     slideGroups.push(corouselData.slice(i, i + elementsPerSlide));
   }
   return (
-    <div className={styles.corousel}>
+    <div className="flex">
       <Carousel>
         {slideGroups.map((restaurents, index) => {
           return (
-            <div className={styles.items} key={index}>
+            <div className="flex" key={index}>
               {restaurents.map((restaurent) => {
                 return (
                   <CorouselCard restaurent={restaurent} key={restaurent.id} />
