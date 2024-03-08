@@ -15,10 +15,10 @@ const RestaurantCard = ({
           src={ImgCdnURL + cloudinaryImageId}
           className=" min-h-56 max-h-56 rounded-md min-w-52 max-w-52 pl-3 pt-3 mb-5"
         />
-        <p className=" pl-3 w-full text-nowrap truncate hover:text-clip font-bold text-lg">
+        <p className=" pl-3 w-full text-nowrap truncate  font-bold text-lg">
           {name}
         </p>
-        <p className=" pl-3 w-full text-nowrap truncate hover:text-clip ">
+        <p className=" pl-3 w-full text-nowrap truncate  ">
           {cuisines.join(", ")}
         </p>
         <p className="pl-3">⭐️ {avgRating}</p>
